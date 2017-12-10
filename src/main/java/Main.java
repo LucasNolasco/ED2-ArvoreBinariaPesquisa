@@ -21,28 +21,28 @@ import utfpr.dainf.ct.ed.exemplo.ArvoreBinariaPesquisa;
  */
 public class Main {
     public static void main(String[] args) {
-        ArvoreBinariaPesquisa<String> raiz = new ArvoreBinariaPesquisa<>("G");
+        ArvoreBinariaPesquisa<Character> raiz = new ArvoreBinariaPesquisa<>('G');
         
-        raiz.insere("F");
-        raiz.insere("A");
-        raiz.insere("H");
-        raiz.insere("D");
-        raiz.insere("B");
-        raiz.insere("K");
-        raiz.insere("P");
-        raiz.insere("Z");
-        raiz.insere("V");
+        raiz.insere('F');
+        raiz.insere('A');
+        raiz.insere('H');
+        raiz.insere('D');
+        raiz.insere('B');
+        raiz.insere('K');
+        raiz.insere('P');
+        raiz.insere('Z');
+        raiz.insere('V');
         
         System.out.println("\n");
         raiz.visitaPosOrdem();
         
-        ArvoreBinariaPesquisa<String> no;
+        ArvoreBinariaPesquisa<Character> no;
         System.out.println("\n\n PROXIMO EM NIVEL");
         while ((no = raiz.proximoEmNivel()) != null) {
             System.out.print(" " + no.getDado());
         }
         
-        ArvoreBinariaPesquisa<String> teste = new ArvoreBinariaPesquisa<String>("A");
+        ArvoreBinariaPesquisa<Character> teste = new ArvoreBinariaPesquisa<Character>('A');
         System.out.println("\n PESQUISA");
         no = raiz.sucessor(null);
         if(no != null)

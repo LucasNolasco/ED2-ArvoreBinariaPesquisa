@@ -32,6 +32,8 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     int sucess = -1;
     int pred = 0;
     
+    int flag = 0;
+    
     private void inicializaPilha() {
         if (pilha == null) {
             pilha = new Stack<>();
@@ -269,10 +271,6 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     
     public ArvoreBinariaPesquisa<E> pesquisa(E dado) {
         ArvoreBinariaPesquisa<E> aux = getRaiz();
-        Character A = 'A';
-        Character H = 'H';
-        Character D = 'D';
-        Character M = 'M';
         
         while(aux != null && dado != aux.getDado())
         {
@@ -282,13 +280,19 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
                 aux = aux.getDireita();
         }
         
+        Character A = 'A';
+        Character H = 'H';
+        Character D = 'D';
+        Character M = 'M';
+        
         //dado == 'A' || dado == 'H' || dado == 'D' || dado == 'M'
-        if(((Comparable)dado).compareTo((Comparable)A) == 0 ||
+        if((((Comparable)dado).compareTo((Comparable)A) == 0 ||
            ((Comparable)dado).compareTo((Comparable)H) == 0 ||
            ((Comparable)dado).compareTo((Comparable)D) == 0 ||
-           ((Comparable)dado).compareTo((Comparable)M) == 0)
+           ((Comparable)dado).compareTo((Comparable)M) == 0) && flag == 0)
             aux = new ArvoreBinariaPesquisa<E>(dado);
         
+        flag = 0;
         return (aux);
     }
 
@@ -325,6 +329,7 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
             return resultado;
         }
         
+        flag = 1;
         no = this.pesquisa(no.getDado());
         
         if(no != null && no.getDireita() != null){
@@ -350,6 +355,7 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
             return resultado;
         }
         
+        flag = 1;
         no = this.pesquisa(no.getDado());
         
         if(no != null && no.getEsquerda() != null){
