@@ -27,7 +27,7 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     protected ArvoreBinariaPesquisa<E> ultimoVisitado;
     
     Character vect_predecessor[] = {'A', 'C', 'D', 'F', 'G', 'H', 'J', 'M'};
-    Character vect_sucessor[] = {'C', 'D', 'F', 'G', 'H', 'J', 'M', 'N'};
+    Character vect_sucessor[] = {'C', 'D', 'F', 'G', 'H', 'J', 'M', 'N'};    
     
     int sucess = -1;
     int pred = 0;
@@ -276,7 +276,10 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
                 aux = aux.getEsquerda();
             else
                 aux = aux.getDireita();
-        }               
+        }
+        
+        if(aux == null)
+            aux = new ArvoreBinariaPesquisa<E>(dado);
         
         return (aux);
     }

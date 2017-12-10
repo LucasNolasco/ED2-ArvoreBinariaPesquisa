@@ -44,7 +44,7 @@ public class Main {
         
         ArvoreBinariaPesquisa<String> teste = new ArvoreBinariaPesquisa<String>("A");
         System.out.println("\n PESQUISA");
-        no = raiz.sucessor(null);
+        no = raiz.predecessor(null);
         if(no != null)
             System.out.println(no.getDado());
         
