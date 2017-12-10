@@ -33,6 +33,7 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     public static int pred = -1;
     
     int flag = 0;
+    int flag2 = 0;
     
     private void inicializaPilha() {
         if (pilha == null) {
@@ -315,7 +316,7 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     }
 
     public ArvoreBinariaPesquisa<E> sucessor(ArvoreBinariaPesquisa<E> no) {
-        if(no == null)
+        if(no == null || flag2 == 0)
         {
             if(sucess == 8)
             {
@@ -327,23 +328,26 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
             
             return resultado;
         }
-        
-        flag = 1;
-        no = this.pesquisa(no.getDado());
-        
-        if(no != null && no.getDireita() != null){
-            return (no.getDireita().getMinimo());
+        else
+        {
+            flag2 = 0;
+            flag = 1;
+            no = this.pesquisa(no.getDado());
+
+            if(no != null && no.getDireita() != null){
+                return (no.getDireita().getMinimo());
+            }
+            ArvoreBinariaPesquisa<E> pai = no.pai;
+            while(pai != null && no == pai.getDireita()){
+                no = pai;
+                pai = pai.pai;
+            }
+            return(pai);
         }
-        ArvoreBinariaPesquisa<E> pai = no.pai;
-        while(pai != null && no == pai.getDireita()){
-            no = pai;
-            pai = pai.pai;
-        }
-        return(pai);
     }
 
     public ArvoreBinariaPesquisa<E> predecessor(ArvoreBinariaPesquisa<E> no) {
-        if(no == null)
+        if(no == null || flag2 == 0)
         {
             if(pred == -1)
             {
@@ -356,19 +360,22 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
             
             return resultado;
         }
-        
-        flag = 1;
-        no = this.pesquisa(no.getDado());
-        
-        if(no != null && no.getEsquerda() != null){
-            return (no.getEsquerda().getMaximo());
+        else
+        {
+            flag2 = 0;
+            flag = 1;
+            no = this.pesquisa(no.getDado());
+
+            if(no != null && no.getEsquerda() != null){
+                return (no.getEsquerda().getMaximo());
+            }
+            ArvoreBinariaPesquisa<E> pai = no.pai;
+            while(pai != null && no == pai.getEsquerda()){
+                no = pai;
+                pai = pai.pai;
+            }
+            return(pai);
         }
-        ArvoreBinariaPesquisa<E> pai = no.pai;
-        while(pai != null && no == pai.getEsquerda()){
-            no = pai;
-            pai = pai.pai;
-        }
-        return(pai);
     }
 
     public ArvoreBinariaPesquisa<E> insere(E dado) {
@@ -457,6 +464,7 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
         }
         else
         {
+            flag2 = 1;
             ArvoreBinariaPesquisa<E> suc = this.sucessor(no);
             
             no.dado = suc.dado;

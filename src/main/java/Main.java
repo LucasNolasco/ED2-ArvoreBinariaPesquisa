@@ -42,6 +42,27 @@ public class Main {
             System.out.print(" " + no.getDado());
         }
         
+        System.out.print("\n" + raiz.sucessor(raiz).getDado());
+        System.out.print("\n" + raiz.sucessor(raiz).getDado());
+        System.out.print("\n" + raiz.sucessor(raiz).getDado());
+        System.out.print("\n" + raiz.sucessor(raiz).getDado());
+        System.out.print("\n" + raiz.sucessor(raiz).getDado());
+        System.out.print("\n" + raiz.sucessor(raiz).getDado());
+        System.out.print("\n" + raiz.sucessor(raiz).getDado());
+        System.out.print("\n" + raiz.sucessor(raiz).getDado());
+        System.out.print("\n" + raiz.sucessor(raiz));
+        
+        System.out.print("\n" + raiz.predecessor(raiz));
+        System.out.print("\n" + raiz.predecessor(raiz).getDado());
+        System.out.print("\n" + raiz.predecessor(raiz).getDado());
+        System.out.print("\n" + raiz.predecessor(raiz).getDado());
+        System.out.print("\n" + raiz.predecessor(raiz).getDado());
+        System.out.print("\n" + raiz.predecessor(raiz).getDado());
+        System.out.print("\n" + raiz.predecessor(raiz).getDado());
+        System.out.print("\n" + raiz.predecessor(raiz).getDado());
+        System.out.print("\n" + raiz.predecessor(raiz).getDado());
+        
+        
         ArvoreBinariaPesquisa<Character> teste = new ArvoreBinariaPesquisa<Character>('A');
         System.out.println("\n PESQUISA");
         no = raiz.sucessor(null);
