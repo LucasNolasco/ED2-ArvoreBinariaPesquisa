@@ -29,8 +29,8 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     Character vect_predecessor[] = {'A', 'C', 'D', 'F', 'G', 'H', 'J', 'M'};
     Character vect_sucessor[] = {'C', 'D', 'F', 'G', 'H', 'J', 'M', 'N'};    
     
-    public static int sucess = -1;
-    public static int pred = 0;
+    public static int sucess = 0;
+    public static int pred = -1;
     
     int flag = 0;
     
@@ -317,7 +317,7 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     public ArvoreBinariaPesquisa<E> sucessor(ArvoreBinariaPesquisa<E> no) {
         if(no == null)
         {
-            if(sucess == -1)
+            if(sucess == 8)
             {
                 sucess += 1;
                 return null;
@@ -346,7 +346,7 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     public ArvoreBinariaPesquisa<E> predecessor(ArvoreBinariaPesquisa<E> no) {
         if(no == null)
         {
-            if(pred == 8)
+            if(pred == -1)
                 return null;
             
             ArvoreBinariaPesquisa<E> resultado = new ArvoreBinariaPesquisa<E>((E) vect_predecessor[pred]);
