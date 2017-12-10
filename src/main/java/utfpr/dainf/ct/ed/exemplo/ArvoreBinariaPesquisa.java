@@ -319,7 +319,6 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
         {
             if(sucess == 8)
             {
-                sucess += 1;
                 return null;
             }
             
@@ -347,7 +346,10 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
         if(no == null)
         {
             if(pred == -1)
+            {
+                pred += 1;
                 return null;
+            }
             
             ArvoreBinariaPesquisa<E> resultado = new ArvoreBinariaPesquisa<E>((E) vect_predecessor[pred]);
             pred += 1;
