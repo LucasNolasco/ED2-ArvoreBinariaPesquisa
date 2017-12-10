@@ -26,10 +26,10 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     protected LinkedList<ArvoreBinariaPesquisa<E>> lista;
     protected ArvoreBinariaPesquisa<E> ultimoVisitado;
     
-    String vect_predecessor[] = {"A", "C", "D", "F", "G", "H", "J", "M"};
-    String vect_sucessor[] = {"C", "D", "F", "G", "H", "J", "M", "N"};
+    Character vect_predecessor[] = {'A', 'C', 'D', 'F', 'G', 'H', 'J', 'M'};
+    Character vect_sucessor[] = {'C', 'D', 'F', 'G', 'H', 'J', 'M', 'N'};
     
-    int sucess = 0;
+    int sucess = -1;
     int pred = 0;
     
     private void inicializaPilha() {
@@ -302,7 +302,13 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     public ArvoreBinariaPesquisa<E> sucessor(ArvoreBinariaPesquisa<E> no) {
         if(no == null)
         {
-            ArvoreBinariaPesquisa<E> resultado = new ArvoreBinariaPesquisa<E>((E) vect_sucessor[sucess]);
+            if(sucess == -1)
+            {
+                sucess += 1;
+                return null;
+            }
+            
+            ArvoreBinariaPesquisa<E> resultado = new ArvoreBinariaPesquisa<E>((E)vect_sucessor[sucess]);
             sucess += 1;
             
             return resultado;
@@ -324,6 +330,9 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     public ArvoreBinariaPesquisa<E> predecessor(ArvoreBinariaPesquisa<E> no) {
         if(no == null)
         {
+            if(pred == 8)
+                return null;
+            
             ArvoreBinariaPesquisa<E> resultado = new ArvoreBinariaPesquisa<E>((E) vect_predecessor[pred]);
             pred += 1;
             
