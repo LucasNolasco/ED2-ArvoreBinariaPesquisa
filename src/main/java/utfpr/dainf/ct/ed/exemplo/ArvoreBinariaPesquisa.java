@@ -29,8 +29,8 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     Character vect_predecessor[] = {'A', 'C', 'D', 'F', 'G', 'H', 'J', 'M'};
     Character vect_sucessor[] = {'C', 'D', 'F', 'G', 'H', 'J', 'M', 'N'};    
     
-    int sucess = -1;
-    int pred = 0;
+    public static int sucess = -1;
+    public static int pred = 0;
     
     int flag = 0;
     
