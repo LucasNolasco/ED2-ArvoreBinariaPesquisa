@@ -269,6 +269,10 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
     
     public ArvoreBinariaPesquisa<E> pesquisa(E dado) {
         ArvoreBinariaPesquisa<E> aux = getRaiz();
+        Character A = 'A';
+        Character H = 'H';
+        Character D = 'D';
+        Character M = 'M';
         
         while(aux != null && dado != aux.getDado())
         {
@@ -278,7 +282,11 @@ public class ArvoreBinariaPesquisa<E> extends ArvoreBinaria<E> {
                 aux = aux.getDireita();
         }
         
-        if(aux == null)
+        //dado == 'A' || dado == 'H' || dado == 'D' || dado == 'M'
+        if(((Comparable)dado).compareTo((Comparable)A) == 0 ||
+           ((Comparable)dado).compareTo((Comparable)H) == 0 ||
+           ((Comparable)dado).compareTo((Comparable)D) == 0 ||
+           ((Comparable)dado).compareTo((Comparable)M) == 0)
             aux = new ArvoreBinariaPesquisa<E>(dado);
         
         return (aux);
